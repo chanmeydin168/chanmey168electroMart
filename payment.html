@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - ElectroMart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scene">
+        <div class="app-shell">
+            <header class="cart-site-header">
+                <nav class="navbar">
+                    <a class="logo" href="index.html#home"><span class="logo-mark"></span>ElectroMart</a>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#products">Products <span class="nav-arrow">&#8964;</span></a></li>
+                        <li><a href="cart.html" class="nav-cart-count">Cart (0)</a></li>
+                        <li><a class="active" href="payment.html">Payment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <a class="nav-cta" href="cart.html">Back to cart <span class="cart-line-icon"></span></a>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="payment-page">
+                <section class="payment-methods" aria-label="Select payment method">
+                    <h1>Select Payment Method</h1>
+
+                    <label class="payment-option selected">
+                        <input type="radio" name="paymentMethod" checked>
+                        <span class="payment-brand paypal">P</span>
+                        <strong>Paypal</strong>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod">
+                        <span class="payment-brand visa">VISA</span>
+                        <strong>**** **** **** 8047</strong>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod">
+                        <span class="payment-brand google">G</span>
+                        <strong>Google Pay</strong>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod">
+                        <span class="payment-brand cash"></span>
+                        <strong>Cash On Delivery</strong>
+                    </label>
+
+                    <section class="payment-card-entry" aria-label="Add new credit or debit card">
+                        <label class="payment-option card-title">
+                            <input type="radio" name="paymentMethod">
+                            <span class="payment-brand card-icon"></span>
+                            <strong>Add New Credit/Debit Card</strong>
+                        </label>
+
+                        <form class="payment-form">
+                            <label>
+                                Card Holder Name *
+                                <input type="text" name="cardholder" placeholder="Ex. John Doe">
+                            </label>
+
+                            <label>
+                                Card Number *
+                                <input type="text" name="cardnumber" value="4716 9627 1635 8047">
+                            </label>
+
+                            <div class="payment-form-row">
+                                <label>
+                                    Expiry Date *
+                                    <input type="text" name="expiry" value="02/30">
+                                </label>
+                                <label>
+                                    CVV *
+                                    <input type="text" name="cvv" placeholder="000">
+                                </label>
+                            </div>
+
+                            <label class="save-card-option">
+                                <input type="checkbox" checked>
+                                <span>Save card for future payments</span>
+                            </label>
+
+                            <button type="button">Add Card</button>
+                        </form>
+                    </section>
+                </section>
+
+                <aside class="payment-order-summary" aria-label="Order summary">
+                    <h2>Order Summary</h2>
+                    <div class="payment-summary-row">
+                        <span>Items</span>
+                        <strong id="paymentItemsCount">0</strong>
+                    </div>
+                    <div class="payment-summary-row">
+                        <span>Sub Total</span>
+                        <strong id="paymentSubtotal">$0.00</strong>
+                    </div>
+                    <div class="payment-summary-row">
+                        <span>Shipping</span>
+                        <strong id="paymentShipping">$0.00</strong>
+                    </div>
+                    <div class="payment-summary-row">
+                        <span>Taxes</span>
+                        <strong id="paymentTaxes">$0.00</strong>
+                    </div>
+                    <div class="payment-summary-row">
+                        <span>Coupon Discount</span>
+                        <strong id="paymentDiscount">-$0.00</strong>
+                    </div>
+                    <div class="payment-summary-row total">
+                        <span>Total</span>
+                        <strong id="paymentTotal">$0.00</strong>
+                    </div>
+                    <button type="button" id="confirmPaymentButton">Confirm Payment</button>
+                </aside>
+            </main>
+
+            <main class="receipt-page" id="receiptPage" hidden>
+                <section class="receipt-card" aria-label="Payment receipt">
+                    <div class="receipt-ticket-top">
+                        <span class="receipt-party" aria-hidden="true">&#127881;</span>
+                        <h1>Thank you</h1>
+                        <p>Your payment has been processed successfully.</p>
+                    </div>
+
+                    <div class="receipt-ticket-body">
+                        <div class="receipt-info-grid">
+                            <div>
+                                <span>Ticket ID</span>
+                                <strong id="receiptOrderNumber">EM-000000</strong>
+                            </div>
+                            <div>
+                                <span>Amount</span>
+                                <strong id="receiptTotal">$0.00</strong>
+                            </div>
+                            <div>
+                                <span>Date &amp; Time</span>
+                                <strong id="receiptDate">Today</strong>
+                            </div>
+                        </div>
+
+                        <div class="receipt-card-method">
+                            <span class="receipt-mastercard" id="receiptPaymentIcon" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                            </span>
+                            <div>
+                                <strong id="receiptPaymentMethod">Mastercard ending in 4567</strong>
+                                <p id="receiptPaymentMeta">Expiry: 10/27</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="receipt-barcode-wrap">
+                        <div class="receipt-barcode" aria-hidden="true"></div>
+                        <span id="receiptBarcodeNumber">400000000000000000</span>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="play-footer">
+                <div class="footer-person" aria-hidden="true">
+                    <span class="person-head"></span>
+                    <span class="person-body"></span>
+                    <span class="person-leg left"></span>
+                    <span class="person-leg right"></span>
+                    <span class="person-tool"></span>
+                </div>
+
+                <nav class="footer-link-grid" aria-label="Footer links">
+                    <div>
+                        <h3>Your Account</h3>
+                        <a href="index.html#home">Get started now</a>
+                        <a href="cart.html">Cart</a>
+                        <a href="index.html#products">Browse products</a>
+                        <a href="contact.html">Contact support</a>
+                    </div>
+                    <div>
+                        <h3>Why ElectroMart</h3>
+                        <a href="index.html#products">Best deals</a>
+                        <a href="index.html#brands">Trusted brands</a>
+                        <a href="contact.html">Fast support</a>
+                    </div>
+                    <div>
+                        <h3>Products</h3>
+                        <a href="index.html#products">Laptops</a>
+                        <a href="index.html#products">Phones</a>
+                        <a href="index.html#products">Accessories</a>
+                    </div>
+                    <div>
+                        <h3>About</h3>
+                        <a href="index.html#home">About us</a>
+                        <a href="index.html#brands">Our brands</a>
+                        <a href="contact.html">Store location</a>
+                    </div>
+                    <div>
+                        <h3>Community</h3>
+                        <a href="contact.html">News</a>
+                        <a href="contact.html">Reviews</a>
+                        <a href="contact.html">Workshops</a>
+                    </div>
+                    <div>
+                        <h3>Help</h3>
+                        <a href="contact.html">FAQ</a>
+                        <a href="contact.html">Terms</a>
+                        <a href="contact.html">Privacy policy</a>
+                        <a href="contact.html">Get in touch</a>
+                    </div>
+                </nav>
+
+                <div class="footer-landscape" aria-hidden="true">
+                    <span class="hill hill-one"></span>
+                    <span class="hill hill-two"></span>
+                    <span class="piggy"></span>
+                    <span class="hay hay-one"></span>
+                    <span class="hay hay-two"></span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const CART_STORAGE_KEY = "electromartCartV2";
+        const cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
+        const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const shipping = itemCount > 0 ? 10 : 0;
+        const taxes = 0;
+        const discount = 0;
+        const total = subtotal + shipping + taxes - discount;
+
+        function formatMoney(value) {
+            return `$${value.toFixed(2)}`;
+        }
+
+        function updatePaymentPage() {
+            document.querySelectorAll(".nav-cart-count").forEach(link => {
+                link.innerText = `Cart (${itemCount})`;
+            });
+
+            document.getElementById("paymentItemsCount").innerText = itemCount;
+            document.getElementById("paymentSubtotal").innerText = formatMoney(subtotal);
+            document.getElementById("paymentShipping").innerText = formatMoney(shipping);
+            document.getElementById("paymentTaxes").innerText = formatMoney(taxes);
+            document.getElementById("paymentDiscount").innerText = `-${formatMoney(discount)}`;
+            document.getElementById("paymentTotal").innerText = formatMoney(total);
+            document.getElementById("confirmPaymentButton").disabled = itemCount === 0;
+        }
+
+        function showReceipt() {
+            const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+            const selectedOption = selectedPayment.closest(".payment-option");
+            const selectedText = selectedOption.querySelector("strong").innerText.trim();
+            const paymentIcon = document.getElementById("receiptPaymentIcon");
+            const paymentMethod = document.getElementById("receiptPaymentMethod");
+            const paymentMeta = document.getElementById("receiptPaymentMeta");
+            const orderNumber = `EM-${Date.now().toString().slice(-6)}`;
+            const today = new Date().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric"
+            });
+
+            document.querySelector(".payment-page").hidden = true;
+            paymentIcon.className = "receipt-mastercard";
+
+            if (selectedText.includes("Paypal")) {
+                paymentIcon.className = "receipt-payment-logo paypal";
+                paymentIcon.innerText = "P";
+                paymentMethod.innerText = "Paypal";
+                paymentMeta.innerText = "Paid with Paypal";
+            } else if (selectedText.includes("Google")) {
+                paymentIcon.className = "receipt-payment-logo google";
+                paymentIcon.innerText = "G";
+                paymentMethod.innerText = "Google Pay";
+                paymentMeta.innerText = "Paid with Google Pay";
+            } else if (selectedText.includes("Cash")) {
+                paymentIcon.className = "receipt-payment-logo cash";
+                paymentIcon.innerText = "";
+                paymentMethod.innerText = "Cash On Delivery";
+                paymentMeta.innerText = "Pay when your order arrives";
+            } else {
+                paymentIcon.innerHTML = "<span></span><span></span>";
+                paymentMethod.innerText = selectedText.includes("Credit") ? "Mastercard ending in 4567" : "Mastercard ending in 8047";
+                paymentMeta.innerText = "Expiry: 10/27";
+            }
+
+            document.getElementById("receiptOrderNumber").innerText = orderNumber;
+            document.getElementById("receiptDate").innerText = `${today} | ${new Date().toLocaleTimeString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false
+            })}`;
+            document.getElementById("receiptTotal").innerText = formatMoney(total);
+            document.getElementById("receiptBarcodeNumber").innerText = orderNumber.replace("EM-", "40000000");
+            document.getElementById("receiptPage").hidden = false;
+            document.getElementById("receiptPage").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        updatePaymentPage();
+        document.getElementById("confirmPaymentButton").addEventListener("click", showReceipt);
+    </script>
+</body>
+</html>

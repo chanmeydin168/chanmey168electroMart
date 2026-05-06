@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - ElectroMart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scene">
+        <div class="app-shell">
+            <header class="cart-site-header">
+                <nav class="navbar">
+                    <a class="logo" href="index.html#home"><span class="logo-mark"></span>ElectroMart</a>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#products">Products <span class="nav-arrow">&#8964;</span></a></li>
+                        <li><a class="active nav-cart-count" href="cart.html">Cart (0)</a></li>
+                        <li><a href="payment.html" class="cart-toggle">Payment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <a class="nav-cta" href="index.html#products">Shop now <span class="cart-line-icon"></span></a>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="cart-page">
+                <h1>Cart</h1>
+                <p class="cart-account-copy">
+                    <a href="#">Sign in</a> or <a href="#">create a new account</a> to track orders and see items you may have added using another device.
+                </p>
+
+                <div class="cart-page-layout">
+                    <div id="cartPageItems" aria-live="polite"></div>
+
+                    <section class="cart-payment-summary" aria-label="Payment summary">
+                        <h2>Payment Summary</h2>
+                        <div class="cart-summary-row">
+                            <span>Subtotal</span>
+                            <strong id="cartSubtotalAmount">$0.00</strong>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Delivery</span>
+                            <strong id="cartDeliveryAmount">$0.00</strong>
+                        </div>
+                        <div class="cart-summary-row total">
+                            <span>Total Amount</span>
+                            <strong id="cartTotalAmount">$0.00</strong>
+                        </div>
+                        <a class="cart-payment-button" id="cartPaymentButton" href="payment.html">Continue to Payment</a>
+                    </section>
+                </div>
+            </main>
+
+            <footer class="play-footer">
+                <div class="footer-person" aria-hidden="true">
+                    <span class="person-head"></span>
+                    <span class="person-body"></span>
+                    <span class="person-leg left"></span>
+                    <span class="person-leg right"></span>
+                    <span class="person-tool"></span>
+                </div>
+
+                <nav class="footer-link-grid" aria-label="Footer links">
+                    <div>
+                        <h3>Your Account</h3>
+                        <a href="index.html#home">Get started now</a>
+                        <a href="payment.html">Payment</a>
+                        <a href="index.html#products">Browse products</a>
+                        <a href="contact.html">Contact support</a>
+                    </div>
+                    <div>
+                        <h3>Why ElectroMart</h3>
+                        <a href="index.html#products">Best deals</a>
+                        <a href="index.html#brands">Trusted brands</a>
+                        <a href="contact.html">Fast support</a>
+                    </div>
+                    <div>
+                        <h3>Products</h3>
+                        <a href="index.html#products">Laptops</a>
+                        <a href="index.html#products">Phones</a>
+                        <a href="index.html#products">Accessories</a>
+                    </div>
+                    <div>
+                        <h3>About</h3>
+                        <a href="index.html#home">About us</a>
+                        <a href="index.html#brands">Our brands</a>
+                        <a href="contact.html">Store location</a>
+                    </div>
+                    <div>
+                        <h3>Community</h3>
+                        <a href="contact.html">News</a>
+                        <a href="contact.html">Reviews</a>
+                        <a href="contact.html">Workshops</a>
+                    </div>
+                    <div>
+                        <h3>Help</h3>
+                        <a href="contact.html">FAQ</a>
+                        <a href="contact.html">Terms</a>
+                        <a href="contact.html">Privacy policy</a>
+                        <a href="contact.html">Get in touch</a>
+                    </div>
+                </nav>
+
+                <div class="footer-landscape" aria-hidden="true">
+                    <span class="hill hill-one"></span>
+                    <span class="hill hill-two"></span>
+                    <span class="piggy"></span>
+                    <span class="hay hay-one"></span>
+                    <span class="hay hay-two"></span>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

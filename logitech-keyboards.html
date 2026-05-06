@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logitech Keyboards and Consoles - ElectroMart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scene">
+        <div class="app-shell">
+            <header class="logitech-page-header">
+                <a class="logo" href="index.html">ElectroMart</a>
+                <a class="nav-cta" href="cart.html" id="keyboardCartCount">Cart (0)</a>
+                <a class="nav-cta" href="logitech.html">Back to Logitech</a>
+            </header>
+
+            <main class="keyboard-page">
+                <section class="keyboard-hero">
+                    <div class="keyboard-hero-copy">
+                        <h1>Keyboards<br>and Consoles</h1>
+                        <p>Our keyboards are designed to provide you with the ultimate precision and performance, making it the perfect choice for work or play.</p>
+                    </div>
+                </section>
+
+                <section class="keyboard-product-card" id="alto-keys-k98m">
+                    <div class="product-badges">
+                        <span>Sale</span>
+                        <span>Best Seller</span>
+                    </div>
+                    <button class="favorite-btn" type="button" aria-label="Add to favorites">♡</button>
+
+                    <img class="keyboard-product-image" src="https://resource.logitech.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/solar-k980-keyboard/gallery-images/signature-slim-solar-plus-wireless-keyboard-k980-graphite-typing-view-6.png" alt="Alto Keys K98M keyboard">
+
+                    <div class="color-dots" aria-label="Available colors">
+                        <span class="dot blue"></span>
+                        <span class="dot dark"></span>
+                        <span class="dot white"></span>
+                    </div>
+
+                    <h2>Alto Keys K98M</h2>
+                    <p>Wireless mechanical keyboard with UniCush gasket structure for enhanced typing experience and customization.</p>
+
+                    <div class="keyboard-product-footer">
+                        <div class="price-row">
+                            <strong>$44.99</strong>
+                            <del>$119.99</del>
+                            <span>$10.00 off</span>
+                        </div>
+                        <button class="keyboard-add-cart-btn" type="button">Add to cart</button>
+                    </div>
+                </section>
+
+                <section class="keyboard-detail-tabs" aria-label="Alto Keys K98M product details">
+                    <div class="detail-tab-list" role="tablist" aria-label="Product information">
+                        <a class="detail-tab active" href="#details">Details</a>
+                        <a class="detail-tab" href="#specs">Specs</a>
+                        <a class="detail-tab" href="#compatibility">Compatibility</a>
+                    </div>
+
+                    <div class="detail-tab-panel" id="details">
+                        <h2>Alto Keys K98M Details</h2>
+                        <p>The Alto Keys K98M is built for a softer, quieter mechanical typing feel with a UniCush gasket structure, low-profile wireless design, and a compact layout that still keeps the keys people use every day close at hand.</p>
+                    </div>
+
+                    <div class="detail-info-grid">
+                        <article id="specs">
+                            <h3>Key Features</h3>
+                            <ul>
+                                <li>Wireless mechanical keyboard for work and daily typing</li>
+                                <li>UniCush gasket structure for a cushioned key feel</li>
+                                <li>Multi-device connection for cleaner desk setups</li>
+                            </ul>
+                        </article>
+                        <article id="compatibility">
+                            <h3>Compatibility</h3>
+                            <p>Works well for laptop, desktop, and tablet setups where a compact wireless keyboard is preferred.</p>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div class="cart-alert" id="keyboardCartAlert" aria-hidden="true">
+        <div class="cart-alert-card" role="dialog" aria-modal="true" aria-labelledby="cartAlertTitle">
+            <button class="cart-alert-close" type="button" aria-label="Close cart alert">&times;</button>
+            <div class="cart-alert-title-row">
+                <span class="cart-alert-check" aria-hidden="true">&#10003;</span>
+                <h2 id="cartAlertTitle">1 item added to cart</h2>
+            </div>
+
+            <div class="cart-alert-product">
+                <img src="https://resource.logitech.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/solar-k980-keyboard/gallery-images/signature-slim-solar-plus-wireless-keyboard-k980-graphite-typing-view-6.png" alt="Alto Keys K98M keyboard">
+                <div>
+                    <h3>Alto Keys K98M</h3>
+                    <p>Blue</p>
+                    <strong>$109.99</strong>
+                </div>
+            </div>
+
+            <div class="cart-alert-actions">
+                <a class="cart-alert-view" href="cart.html">View Cart (1)</a>
+                <a class="cart-alert-checkout" href="payment.html">Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const keyboardAddCartButton = document.querySelector(".keyboard-add-cart-btn");
+        const keyboardCartAlert = document.getElementById("keyboardCartAlert");
+        const cartAlertClose = document.querySelector(".cart-alert-close");
+        const CART_STORAGE_KEY = "electromartCartV2";
+        const keyboardProduct = {
+            id: 101,
+            name: "Alto Keys K98M",
+            category: "Keyboard",
+            brand: "Logitech",
+            price: 44.99,
+            image: "https://resource.logitech.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/solar-k980-keyboard/gallery-images/signature-slim-solar-plus-wireless-keyboard-k980-graphite-typing-view-6.png"
+        };
+
+        function loadCart() {
+            const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+
+            if (!savedCart) {
+                return [];
+            }
+
+            try {
+                return JSON.parse(savedCart);
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function updateKeyboardCartCount() {
+            const totalQuantity = loadCart().reduce((sum, item) => sum + item.quantity, 0);
+            const cartCount = document.getElementById("keyboardCartCount");
+
+            if (cartCount) {
+                cartCount.innerText = `Cart (${totalQuantity})`;
+            }
+        }
+
+        function openKeyboardCartAlert() {
+            const cart = loadCart();
+            const existingItem = cart.find(item => item.id === keyboardProduct.id);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...keyboardProduct, quantity: 1 });
+            }
+
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+            updateKeyboardCartCount();
+            window.location.href = "cart.html";
+        }
+
+        function closeKeyboardCartAlert() {
+            keyboardCartAlert.classList.remove("active");
+            keyboardCartAlert.setAttribute("aria-hidden", "true");
+        }
+
+        keyboardAddCartButton.addEventListener("click", openKeyboardCartAlert);
+        cartAlertClose.addEventListener("click", closeKeyboardCartAlert);
+        keyboardCartAlert.addEventListener("click", event => {
+            if (event.target === keyboardCartAlert) {
+                closeKeyboardCartAlert();
+            }
+        });
+        updateKeyboardCartCount();
+    </script>
+</body>
+</html>

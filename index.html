@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroMart - Electronic Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scene">
+        <span class="shape shape-a"></span>
+        <span class="shape shape-b"></span>
+        <span class="shape shape-c"></span>
+        <span class="shape shape-d"></span>
+
+        <div class="app-shell">
+            <header class="header" id="home">
+                <nav class="navbar">
+                    <a class="logo" href="#home"><span class="logo-mark"></span>ElectroMart</a>
+                    <ul>
+                        <li><a class="active" href="#home">Home</a></li>
+                        <li><a href="#products">Products <span class="nav-arrow">&#8964;</span></a></li>
+                        <li><a href="cart.html" class="nav-cart-count">Cart (0)</a></li>
+                        <li><a href="payment.html" class="cart-toggle">Payment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <a class="nav-cta" href="#products">Shop now <span class="cart-line-icon"></span></a>
+                    </div>
+                </nav>
+
+                <section class="controls" aria-label="Product filters">
+                    <div class="search-wrap">
+                        <span class="search-icon"></span>
+                        <input type="text" id="searchInput" placeholder="Search products" onkeyup="filterProducts()">
+                    </div>
+
+                    <select id="categoryFilter" onchange="filterProducts()">
+                        <option value="all">All Categories</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Printer">Printer</option>
+                        <option value="Multifunction Printer">Multifunction Printer</option>
+                        <option value="Router">Router</option>
+                        <option value="CCTV">CCTV</option>
+                        <option value="Access Point and Switch">Access Point and Switch</option>
+                        <option value="Storage">Storage</option>
+                        <option value="Storage 64GB, 128GB, 256GB, 512GB, 1TB">Storage Capacity</option>
+                        <option value="UPS">UPS</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Keyboard">Keyboard</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Camera">Camera</option>
+                        <option value="Tablet">Tablet</option>
+                        <option value="Wearable">Wearable</option>
+                        <option value="Point of Sale">Point of Sale</option>
+                        <option value="Interactive flat panel">Interactive Flat Panel</option>
+                        <option value="Accessory">Accessory</option>
+                        <option value="Audio">Audio</option>
+                    </select>
+
+                    <select id="priceFilter" onchange="filterProducts()">
+                        <option value="all">All Prices</option>
+                        <option value="low">Below $100</option>
+                        <option value="medium">$100 - $500</option>
+                        <option value="high">Above $500</option>
+                    </select>
+                </section>
+
+                <section class="hero">
+                    <div class="hero-copy">
+                        <p class="eyebrow">Easy way to shop your tech</p>
+                        <h1>Find your favorite electronics <span>any time.</span></h1>
+                        <p>Shop laptops, phones, audio gear, and accessories in one clean shopping space.</p>
+
+                        <div class="hero-feature-row" aria-label="Store benefits">
+                            <article>
+                                <span class="feature-icon shield-icon"></span>
+                                <div>
+                                    <h3>Trusted</h3>
+                                    <p>Quality you can trust</p>
+                                </div>
+                            </article>
+                            <article>
+                                <span class="feature-icon truck-icon"></span>
+                                <div>
+                                    <h3>Fast Delivery</h3>
+                                    <p>Quick &amp; reliable</p>
+                                </div>
+                            </article>
+                            <article>
+                                <span class="feature-icon tag-icon"></span>
+                                <div>
+                                    <h3>Best Deals</h3>
+                                    <p>Great prices daily</p>
+                                </div>
+                            </article>
+                            <article>
+                                <span class="feature-icon support-icon"></span>
+                                <div>
+                                    <h3>24/7 Support</h3>
+                                    <p>We're here to help</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <figure class="hero-art">
+                        <img src="https://i.pinimg.com/1200x/d1/22/52/d1225229a6e630f8838a5e807a8a10be.jpg" alt="Electronics workspace with laptop, headphones, plants, and accessories">
+                    </figure>
+                </section>
+
+            </header>
+
+            <section class="category-strip" id="brands" aria-label="Featured brands">
+                <h2>Featured Brands</h2>
+                <a href="#products" class="category-tile brand-tile brand-commscope" data-brand="Commscope"><span>CommScope</span></a>
+                <a href="#products" class="category-tile brand-tile brand-ruckus" data-brand="Ruckus"><span>Ruckus</span></a>
+                <a href="#products" class="category-tile brand-tile brand-alantek" data-brand="Alantek"><span>Alantek</span></a>
+                <a href="#products" class="category-tile brand-tile brand-socomec" data-brand="Socomec"><span>socomec</span></a>
+                <a href="#products" class="category-tile brand-tile brand-dlink" data-brand="D-Link"><span>D-Link</span></a>
+                <a href="#products" class="category-tile brand-tile brand-mikrotik" data-brand="MikroTik"><span>MikroTik</span></a>
+                <a href="#products" class="category-tile brand-tile brand-cisco" data-brand="Cisco"><span>Cisco</span></a>
+                <a href="#products" class="category-tile brand-tile brand-ubiquiti" data-brand="Ubiquiti"><span>U</span></a>
+                <a href="#products" class="category-tile brand-tile brand-epson" data-brand="Epson"><span>EPSON</span></a>
+                <a href="#products" class="category-tile brand-tile brand-brother" data-brand="Brother"><span>brother</span></a>
+                <a href="#products" class="category-tile brand-tile brand-acer" data-brand="Acer"><span>acer</span></a>
+                <a href="#products" class="category-tile brand-tile brand-senor" data-brand="Senor"><span>SENOR</span></a>
+                <a href="#products" class="category-tile brand-tile brand-evolis" data-brand="Evolis"><span>evolis</span></a>
+                <a href="#products" class="category-tile brand-tile brand-anycubic" data-brand="Anycubic"><span>ANYCUBIC</span></a>
+                <a href="#products" class="category-tile brand-tile brand-suprema" data-brand="Suprema"><span>suprema</span></a>
+                <a href="#products" class="category-tile brand-tile brand-zkteco" data-brand="ZKTeco"><span>ZKTeco</span></a>
+                <a href="#products" class="category-tile brand-tile brand-qnap" data-brand="QNAP"><span>QNAP</span></a>
+                <a href="#products" class="category-tile brand-tile brand-kingston" data-brand="Kingston"><span>Kingston</span></a>
+                <a href="#products" class="category-tile brand-tile brand-viewsonic" data-brand="ViewSonic"><span>ViewSonic</span></a>
+                <a href="#products" class="category-tile brand-tile brand-maxhub" data-brand="MAXHUB"><span>MAXHUB</span></a>
+                <a href="logitech.html" target="_blank" class="category-tile brand-tile brand-logitech" data-brand="Logitech" data-open-page="true"><span>logitech</span></a>
+            </section>
+
+            <section class="shape-showcase" aria-label="Product highlights">
+                <div class="showcase-banners" aria-label="Promotions and discounts">
+                    <div class="promo-track">
+                        <article class="showcase-banner">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=720&q=80" alt="Laptop promotion">
+                            <div>
+                                <p class="eyebrow">Weekend deal</p>
+                                <h3>Save 25% on laptops</h3>
+                                <p>Upgrade work and study gear with limited-time offers.</p>
+                            </div>
+                        </article>
+                        <article class="showcase-banner">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=720&q=80" alt="Headphones discount">
+                            <div>
+                                <p class="eyebrow">Audio sale</p>
+                                <h3>Headphones from $49</h3>
+                                <p>Clear sound for calls, music, and everyday focus.</p>
+                            </div>
+                        </article>
+                        <article class="showcase-banner">
+                            <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=720&q=80" alt="Accessory bundle promotion">
+                            <div>
+                                <p class="eyebrow">Bundle offer</p>
+                                <h3>Accessories discount</h3>
+                                <p>Keyboards, mice, and setup essentials for less.</p>
+                            </div>
+                        </article>
+                        <article class="showcase-banner">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=720&q=80" alt="Laptop promotion">
+                            <div>
+                                <p class="eyebrow">Weekend deal</p>
+                                <h3>Save 25% on laptops</h3>
+                                <p>Upgrade work and study gear with limited-time offers.</p>
+                            </div>
+                        </article>
+                        <article class="showcase-banner">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=720&q=80" alt="Headphones discount">
+                            <div>
+                                <p class="eyebrow">Audio sale</p>
+                                <h3>Headphones from $49</h3>
+                                <p>Clear sound for calls, music, and everyday focus.</p>
+                            </div>
+                        </article>
+                        <article class="showcase-banner">
+                            <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=720&q=80" alt="Accessory bundle promotion">
+                            <div>
+                                <p class="eyebrow">Bundle offer</p>
+                                <h3>Accessories discount</h3>
+                                <p>Keyboards, mice, and setup essentials for less.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <div>
+                        <div class="section-heading compact-heading">
+                            <div>
+                                <p class="eyebrow">Popular collection</p>
+                                <h2>Shop by product category</h2>
+                            </div>
+                        </div>
+                        <div class="feature-grid">
+                            <article class="feature-card">
+                                <div class="category-card-top">
+                                    <span class="category-badge sale-badge">Sale</span>
+                                    <button class="favorite-btn" type="button" aria-label="Add mouse to wishlist">&#9825;</button>
+                                </div>
+                                <img src="https://i.pinimg.com/1200x/5a/2a/f8/5a2af832c9abb5f2df29180e823ff26f.jpg" alt="Wireless mouse">
+                                <div class="swatch-row" aria-label="Available mouse colors">
+                                    <span class="swatch active white"></span>
+                                    <span class="swatch blue-light"></span>
+                                    <span class="swatch blue"></span>
+                                    <span class="swatch black"></span>
+                                    <span class="swatch gray"></span>
+                                    <span class="swatch red"></span>
+                                </div>
+                                <h3>M325S Wireless Mouse</h3>
+                                <p>Compact and comfortable with speed wheel</p>
+                                <div class="category-card-footer">
+                                    <div class="category-price">
+                                        <strong>$18.99</strong>
+                                        <del>$22.99</del>
+                                        <span>17% off</span>
+                                    </div>
+                                    <button class="category-cart-btn" type="button" onclick="addToCart(13)">Add to cart <span>&#128722;</span></button>
+                                </div>
+                            </article>
+                            <article class="feature-card">
+                                <div class="category-card-top">
+                                    <span class="category-badge">Low Inventory</span>
+                                    <button class="favorite-btn" type="button" aria-label="Add laptop to wishlist">&#9825;</button>
+                                </div>
+                                <img src="https://i.pinimg.com/736x/83/8a/d6/838ad6dac83b6231587a442cccdd5ebe.jpg" alt="Laptop">
+                                <div class="swatch-row" aria-label="Available laptop colors">
+                                    <span class="swatch active white"></span>
+                                    <span class="swatch gray"></span>
+                                </div>
+                                <h3>Acer Business Laptop</h3>
+                                <p>Thin performance laptop for daily work</p>
+                                <div class="gift-row"><span>&#9670;</span> Gift with Purchase <span class="info-dot">i</span></div>
+                                <div class="category-card-footer">
+                                    <div class="category-price">
+                                        <strong>$850.00</strong>
+                                    </div>
+                                    <button class="category-cart-btn" type="button" onclick="addToCart(1)">Add to cart <span>&#128722;</span></button>
+                                </div>
+                            </article>
+                            <article class="feature-card">
+                                <div class="category-card-top">
+                                    <span class="category-badge invisible-badge">Storage</span>
+                                    <button class="favorite-btn" type="button" aria-label="Add SSD to wishlist">&#9825;</button>
+                                </div>
+                                <img src="https://i.pinimg.com/736x/7f/30/7d/7f307d785721ea343136777380718fa6.jpg" alt="Kingston SSD">
+                                <div class="swatch-row" aria-label="Available SSD colors">
+                                    <span class="swatch dark-gray"></span>
+                                </div>
+                                <h3>Kingston NV3 1TB SSD</h3>
+                                <p>M.2 2280 PCIe NVMe 4.0 storage</p>
+                                <div class="category-card-footer">
+                                    <div class="category-price">
+                                        <strong>$69.99</strong>
+                                    </div>
+                                    <button class="category-cart-btn" type="button" onclick="addToCart(9)">Add to cart <span>&#128722;</span></button>
+                                </div>
+                            </article>
+                            <article class="feature-card">
+                                <div class="category-card-top">
+                                    <span class="category-badge sale-badge">Hot</span>
+                                    <button class="favorite-btn" type="button" aria-label="Add headset to wishlist">&#9825;</button>
+                                </div>
+                                <img src="https://i.pinimg.com/736x/66/62/7e/66627e65c5484b44a7784e4ea85a6a7f.jpg" alt="Headset">
+                                <div class="swatch-row" aria-label="Available headset colors">
+                                    <span class="swatch active black"></span>
+                                    <span class="swatch gray"></span>
+                                    <span class="swatch blue"></span>
+                                </div>
+                                <h3>Wireless Headset</h3>
+                                <p>Clear audio for calls, music, and games</p>
+                                <div class="category-card-footer">
+                                    <div class="category-price">
+                                        <strong>$120.00</strong>
+                                    </div>
+                                    <button class="category-cart-btn" type="button" onclick="addToCart(14)">Add to cart <span>&#128722;</span></button>
+                                </div>
+                            </article>
+                            <article class="feature-card">
+                                <div class="category-card-top">
+                                    <span class="category-badge">New</span>
+                                    <button class="favorite-btn" type="button" aria-label="Add monitor to wishlist">&#9825;</button>
+                                </div>
+                                <img src="https://m.media-amazon.com/images/I/71VIOc7ityL.jpg" alt="ViewSonic monitor">
+                                <div class="swatch-row" aria-label="Available monitor colors">
+                                    <span class="swatch active white"></span>
+                                    <span class="swatch black"></span>
+                                </div>
+                                <h3>ViewSonic Monitor</h3>
+                                <p>ViewSonic TD2455 24 Inch 1080p IPS 10-Point Multi Touch Screen Monitor </p>
+                                <div class="category-card-footer">
+                                    <div class="category-price">
+                                        <strong>$249.00</strong>
+                                    </div>
+                                    <button class="category-cart-btn" type="button" onclick="addToCart(15)">Add to cart <span>&#128722;</span></button>
+                                </div>
+                            </article>
+                            <article class="feature-card">
+                                <div class="category-card-top">
+                                    <span class="category-badge sale-badge">Popular</span>
+                                    <button class="favorite-btn" type="button" aria-label="Add racing wheel to wishlist">&#9825;</button>
+                                </div>
+                                <img src="https://i5.walmartimages.com/seo/Logitech-Driving-Force-G29-Racing-Wheel-for-PlayStation-4-and-PlayStation-3-Non-Retail-Packaging_28566fe5-8d6d-42e7-bde3-eba9bdce8c17.b3e44f28dc9f635ab525c4cafba64477.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" alt="Logitech Racing Wheel">
+                                <div class="swatch-row" aria-label="Available racing wheel colors">
+                                    <span class="swatch active black"></span>
+                                    <span class="swatch gray"></span>
+                                </div>
+                                <h3>Logitech Driving Force G29 Racing Wheel</h3>
+                                <p>Logitech Driving Force G29 Racing Wheel for PlayStation 4 and PlayStation 3 (Non-Retail Packaging)</p>
+                                <div class="category-card-footer">
+                                    <div class="category-price">
+                                        <strong>$199.00</strong>
+                                    </div>
+                                    <button class="category-cart-btn" type="button" onclick="addToCart(16)">Add to cart <span>&#128722;</span></button>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <main class="container">
+                <section class="product-section" id="products">
+                    <section class="products-hero-image" aria-label="Product inspiration gallery">
+                        <div class="gallery-promo-copy">
+                            <h3>Better<br>Together</h3>
+                            <p>Bundle and save on your perfect productivity pairings.</p>
+                            <span>Limited time offer. <a href="#products">Terms apply.</a></span>
+                        </div>
+                        <div class="gallery-controls" aria-label="Gallery controls">
+                            <button class="gallery-arrow" type="button" data-gallery-direction="-1" aria-label="Scroll gallery left">&#8592;</button>
+                            <button class="gallery-arrow" type="button" data-gallery-direction="1" aria-label="Scroll gallery right">&#8594;</button>
+                        </div>
+                        <div class="product-gallery-track" id="productGallery">
+                            <figure>
+                                <img src="https://i.pinimg.com/736x/a9/b2/66/a9b26684273c54921b2b2665eb6623d7.jpg" alt="Colorful keyboard on a desk">
+                                <figcaption>Colorful keyboard</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="https://i.pinimg.com/736x/7b/81/be/7b81be62b7f63d751ba879f063cdc6d4.jpg" alt="Mouse and workspace accessories">
+                                <figcaption>Mouse accessories</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="https://i.pinimg.com/736x/8c/a3/0f/8ca30f3f20ea5051e543a9ff292e1d90.jpg" alt="Bright office workspace">
+                                <figcaption>Office vibe</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=82" alt="Study desk with laptop">
+                                <figcaption>Study setup</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=900&q=82" alt="Electronic accessories collection">
+                                <figcaption>Desk accessories</figcaption>
+                            </figure>
+                            <figure>
+                                <img src="https://i.pinimg.com/736x/2f/fc/e6/2ffce627954199c172bd5947d589da92.jpg" alt="Headphones and audio accessories">
+                                <figcaption>Audio essentials</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+                    <div class="products" id="productList"></div>
+                </section>
+
+            </main>
+
+            <footer class="play-footer">
+                <div class="footer-person" aria-hidden="true">
+                    <span class="person-head"></span>
+                    <span class="person-body"></span>
+                    <span class="person-leg left"></span>
+                    <span class="person-leg right"></span>
+                    <span class="person-tool"></span>
+                </div>
+
+                <nav class="footer-link-grid" aria-label="Footer links">
+                    <div>
+                        <h3>Your Account</h3>
+                        <a href="#home">Get started now</a>
+                        <a href="payment.html">Payment</a>
+                        <a href="#products">Browse products</a>
+                        <a href="contact.html">Contact support</a>
+                    </div>
+                    <div>
+                        <h3>Why ElectroMart</h3>
+                        <a href="#products">Best deals</a>
+                        <a href="#brands">Trusted brands</a>
+                        <a href="contact.html">Fast support</a>
+                    </div>
+                    <div>
+                        <h3>Products</h3>
+                        <a href="#products">Laptops</a>
+                        <a href="#products">Phones</a>
+                        <a href="#products">Accessories</a>
+                    </div>
+                    <div>
+                        <h3>About</h3>
+                        <a href="#home">About us</a>
+                        <a href="#brands">Our brands</a>
+                        <a href="contact.html">Store location</a>
+                    </div>
+                    <div>
+                        <h3>Community</h3>
+                        <a href="contact.html">News</a>
+                        <a href="contact.html">Reviews</a>
+                        <a href="contact.html">Workshops</a>
+                    </div>
+                    <div>
+                        <h3>Help</h3>
+                        <a href="contact.html">FAQ</a>
+                        <a href="contact.html">Terms</a>
+                        <a href="contact.html">Privacy policy</a>
+                        <a href="contact.html">Get in touch</a>
+                    </div>
+                </nav>
+
+                <div class="footer-landscape" aria-hidden="true">
+                    <span class="hill hill-one"></span>
+                    <span class="hill hill-two"></span>
+                    <span class="piggy"></span>
+                    <span class="hay hay-one"></span>
+                    <span class="hay hay-two"></span>
+                </div>
+
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
